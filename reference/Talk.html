@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Talk API &mdash; NcPyApi 0.0.40 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/autodoc_pydantic.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/styles.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/dark.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/light.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=84bd753f"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+        <script src="../_static/tabs.js?v=3ee01567"></script>
+        <script src="../_static/js/script.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Session Structures" href="Session.html" />
+    <link rel="prev" title="Exceptions" href="Exceptions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NcPyApi
+              <img src="../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.0.40
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FirstSteps.html">First steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MoreAPIs.html">More APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NextcloudApp.html">Writing a Nextcloud Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NextcloudSysApp.html">Writing System Nextcloud Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Options.html">Options</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Nextcloud.html">Nextcloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Apps.html">Applications Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Files/index.html">Files API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Users/index.html">Users API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ExApp.html">External Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exceptions.html">Exceptions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Talk API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#nc_py_api.talk.Conversation"><code class="docutils literal notranslate"><span class="pre">Conversation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.conversation_id"><code class="docutils literal notranslate"><span class="pre">Conversation.conversation_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.token"><code class="docutils literal notranslate"><span class="pre">Conversation.token</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.conversation_type"><code class="docutils literal notranslate"><span class="pre">Conversation.conversation_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.name"><code class="docutils literal notranslate"><span class="pre">Conversation.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.display_name"><code class="docutils literal notranslate"><span class="pre">Conversation.display_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.description"><code class="docutils literal notranslate"><span class="pre">Conversation.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.participant_type"><code class="docutils literal notranslate"><span class="pre">Conversation.participant_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.attendee_id"><code class="docutils literal notranslate"><span class="pre">Conversation.attendee_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.attendee_pin"><code class="docutils literal notranslate"><span class="pre">Conversation.attendee_pin</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.actor_type"><code class="docutils literal notranslate"><span class="pre">Conversation.actor_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.actor_id"><code class="docutils literal notranslate"><span class="pre">Conversation.actor_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.permissions"><code class="docutils literal notranslate"><span class="pre">Conversation.permissions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.attendee_permissions"><code class="docutils literal notranslate"><span class="pre">Conversation.attendee_permissions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.call_permissions"><code class="docutils literal notranslate"><span class="pre">Conversation.call_permissions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.default_permissions"><code class="docutils literal notranslate"><span class="pre">Conversation.default_permissions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.participant_flags"><code class="docutils literal notranslate"><span class="pre">Conversation.participant_flags</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.read_only"><code class="docutils literal notranslate"><span class="pre">Conversation.read_only</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.listable"><code class="docutils literal notranslate"><span class="pre">Conversation.listable</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.message_expiration"><code class="docutils literal notranslate"><span class="pre">Conversation.message_expiration</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.has_password"><code class="docutils literal notranslate"><span class="pre">Conversation.has_password</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.has_call"><code class="docutils literal notranslate"><span class="pre">Conversation.has_call</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.call_flag"><code class="docutils literal notranslate"><span class="pre">Conversation.call_flag</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.can_start_call"><code class="docutils literal notranslate"><span class="pre">Conversation.can_start_call</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.can_delete_conversation"><code class="docutils literal notranslate"><span class="pre">Conversation.can_delete_conversation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.can_leave_conversation"><code class="docutils literal notranslate"><span class="pre">Conversation.can_leave_conversation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.last_activity"><code class="docutils literal notranslate"><span class="pre">Conversation.last_activity</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.is_favorite"><code class="docutils literal notranslate"><span class="pre">Conversation.is_favorite</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.status_clear_at"><code class="docutils literal notranslate"><span class="pre">Conversation.status_clear_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.status_icon"><code class="docutils literal notranslate"><span class="pre">Conversation.status_icon</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.status_message"><code class="docutils literal notranslate"><span class="pre">Conversation.status_message</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.status_type"><code class="docutils literal notranslate"><span class="pre">Conversation.status_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.notification_level"><code class="docutils literal notranslate"><span class="pre">Conversation.notification_level</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.lobby_state"><code class="docutils literal notranslate"><span class="pre">Conversation.lobby_state</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.lobby_timer"><code class="docutils literal notranslate"><span class="pre">Conversation.lobby_timer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.sip_enabled"><code class="docutils literal notranslate"><span class="pre">Conversation.sip_enabled</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.can_enable_sip"><code class="docutils literal notranslate"><span class="pre">Conversation.can_enable_sip</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.unread_messages_count"><code class="docutils literal notranslate"><span class="pre">Conversation.unread_messages_count</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.unread_mention"><code class="docutils literal notranslate"><span class="pre">Conversation.unread_mention</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.unread_mention_direct"><code class="docutils literal notranslate"><span class="pre">Conversation.unread_mention_direct</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.last_read_message"><code class="docutils literal notranslate"><span class="pre">Conversation.last_read_message</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.breakout_room_mode"><code class="docutils literal notranslate"><span class="pre">Conversation.breakout_room_mode</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.breakout_room_status"><code class="docutils literal notranslate"><span class="pre">Conversation.breakout_room_status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.avatar_version"><code class="docutils literal notranslate"><span class="pre">Conversation.avatar_version</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.is_custom_avatar"><code class="docutils literal notranslate"><span class="pre">Conversation.is_custom_avatar</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.call_start_time"><code class="docutils literal notranslate"><span class="pre">Conversation.call_start_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.Conversation.recording_status"><code class="docutils literal notranslate"><span class="pre">Conversation.recording_status</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#nc_py_api.talk._TalkAPI"><code class="docutils literal notranslate"><span class="pre">_TalkAPI</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk._TalkAPI.config_sha"><code class="docutils literal notranslate"><span class="pre">_TalkAPI.config_sha</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk._TalkAPI.modified_since"><code class="docutils literal notranslate"><span class="pre">_TalkAPI.modified_since</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk._TalkAPI.available"><code class="docutils literal notranslate"><span class="pre">_TalkAPI.available</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk._TalkAPI.get_user_conversations"><code class="docutils literal notranslate"><span class="pre">_TalkAPI.get_user_conversations()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk._TalkAPI.create_conversation"><code class="docutils literal notranslate"><span class="pre">_TalkAPI.create_conversation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk._TalkAPI.delete_conversation"><code class="docutils literal notranslate"><span class="pre">_TalkAPI.delete_conversation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk._TalkAPI.leave_conversation"><code class="docutils literal notranslate"><span class="pre">_TalkAPI.leave_conversation()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#nc_py_api.talk.ConversationType"><code class="docutils literal notranslate"><span class="pre">ConversationType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.ConversationType.ONE_TO_ONE"><code class="docutils literal notranslate"><span class="pre">ConversationType.ONE_TO_ONE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.ConversationType.GROUP"><code class="docutils literal notranslate"><span class="pre">ConversationType.GROUP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.ConversationType.PUBLIC"><code class="docutils literal notranslate"><span class="pre">ConversationType.PUBLIC</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.ConversationType.CHANGELOG"><code class="docutils literal notranslate"><span class="pre">ConversationType.CHANGELOG</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.ConversationType.FORMER"><code class="docutils literal notranslate"><span class="pre">ConversationType.FORMER</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#nc_py_api.talk.ParticipantType"><code class="docutils literal notranslate"><span class="pre">ParticipantType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.ParticipantType.OWNER"><code class="docutils literal notranslate"><span class="pre">ParticipantType.OWNER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.ParticipantType.MODERATOR"><code class="docutils literal notranslate"><span class="pre">ParticipantType.MODERATOR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.ParticipantType.USER"><code class="docutils literal notranslate"><span class="pre">ParticipantType.USER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.ParticipantType.GUEST"><code class="docutils literal notranslate"><span class="pre">ParticipantType.GUEST</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.ParticipantType.USER_SELF_JOINED"><code class="docutils literal notranslate"><span class="pre">ParticipantType.USER_SELF_JOINED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.ParticipantType.GUEST_MODERATOR"><code class="docutils literal notranslate"><span class="pre">ParticipantType.GUEST_MODERATOR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#nc_py_api.talk.AttendeePermissions"><code class="docutils literal notranslate"><span class="pre">AttendeePermissions</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.AttendeePermissions.DEFAULT"><code class="docutils literal notranslate"><span class="pre">AttendeePermissions.DEFAULT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.AttendeePermissions.CUSTOM"><code class="docutils literal notranslate"><span class="pre">AttendeePermissions.CUSTOM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.AttendeePermissions.START_CALL"><code class="docutils literal notranslate"><span class="pre">AttendeePermissions.START_CALL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.AttendeePermissions.JOIN_CALL"><code class="docutils literal notranslate"><span class="pre">AttendeePermissions.JOIN_CALL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.AttendeePermissions.IGNORE"><code class="docutils literal notranslate"><span class="pre">AttendeePermissions.IGNORE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.AttendeePermissions.AUDIO"><code class="docutils literal notranslate"><span class="pre">AttendeePermissions.AUDIO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.AttendeePermissions.VIDEO"><code class="docutils literal notranslate"><span class="pre">AttendeePermissions.VIDEO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.AttendeePermissions.SHARE_SCREEN"><code class="docutils literal notranslate"><span class="pre">AttendeePermissions.SHARE_SCREEN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.AttendeePermissions.OTHER"><code class="docutils literal notranslate"><span class="pre">AttendeePermissions.OTHER</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#nc_py_api.talk.InCallFlags"><code class="docutils literal notranslate"><span class="pre">InCallFlags</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.InCallFlags.DISCONNECTED"><code class="docutils literal notranslate"><span class="pre">InCallFlags.DISCONNECTED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.InCallFlags.IN_CALL"><code class="docutils literal notranslate"><span class="pre">InCallFlags.IN_CALL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.InCallFlags.PROVIDES_AUDIO"><code class="docutils literal notranslate"><span class="pre">InCallFlags.PROVIDES_AUDIO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.InCallFlags.PROVIDES_VIDEO"><code class="docutils literal notranslate"><span class="pre">InCallFlags.PROVIDES_VIDEO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.InCallFlags.USES_SIP_DIAL_IN"><code class="docutils literal notranslate"><span class="pre">InCallFlags.USES_SIP_DIAL_IN</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#nc_py_api.talk.ListableScope"><code class="docutils literal notranslate"><span class="pre">ListableScope</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.ListableScope.PARTICIPANTS_ONLY"><code class="docutils literal notranslate"><span class="pre">ListableScope.PARTICIPANTS_ONLY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.ListableScope.ONLY_REGULAR_USERS"><code class="docutils literal notranslate"><span class="pre">ListableScope.ONLY_REGULAR_USERS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.ListableScope.EVERYONE"><code class="docutils literal notranslate"><span class="pre">ListableScope.EVERYONE</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#nc_py_api.talk.NotificationLevel"><code class="docutils literal notranslate"><span class="pre">NotificationLevel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.NotificationLevel.DEFAULT"><code class="docutils literal notranslate"><span class="pre">NotificationLevel.DEFAULT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.NotificationLevel.ALWAYS_NOTIFY"><code class="docutils literal notranslate"><span class="pre">NotificationLevel.ALWAYS_NOTIFY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.NotificationLevel.NOTIFY_ON_MENTION"><code class="docutils literal notranslate"><span class="pre">NotificationLevel.NOTIFY_ON_MENTION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.NotificationLevel.NEVER_NOTIFY"><code class="docutils literal notranslate"><span class="pre">NotificationLevel.NEVER_NOTIFY</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#nc_py_api.talk.WebinarLobbyStates"><code class="docutils literal notranslate"><span class="pre">WebinarLobbyStates</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.WebinarLobbyStates.NO_LOBBY"><code class="docutils literal notranslate"><span class="pre">WebinarLobbyStates.NO_LOBBY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.WebinarLobbyStates.NON_MODERATORS"><code class="docutils literal notranslate"><span class="pre">WebinarLobbyStates.NON_MODERATORS</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#nc_py_api.talk.SipEnabledStatus"><code class="docutils literal notranslate"><span class="pre">SipEnabledStatus</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.SipEnabledStatus.DISABLED"><code class="docutils literal notranslate"><span class="pre">SipEnabledStatus.DISABLED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.SipEnabledStatus.ENABLED"><code class="docutils literal notranslate"><span class="pre">SipEnabledStatus.ENABLED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.SipEnabledStatus.ENABLED_NO_PIN"><code class="docutils literal notranslate"><span class="pre">SipEnabledStatus.ENABLED_NO_PIN</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#nc_py_api.talk.CallRecordingStatus"><code class="docutils literal notranslate"><span class="pre">CallRecordingStatus</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.CallRecordingStatus.NO_RECORDING"><code class="docutils literal notranslate"><span class="pre">CallRecordingStatus.NO_RECORDING</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.CallRecordingStatus.VIDEO"><code class="docutils literal notranslate"><span class="pre">CallRecordingStatus.VIDEO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.CallRecordingStatus.AUDIO"><code class="docutils literal notranslate"><span class="pre">CallRecordingStatus.AUDIO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.CallRecordingStatus.STARTING_VIDEO"><code class="docutils literal notranslate"><span class="pre">CallRecordingStatus.STARTING_VIDEO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.CallRecordingStatus.STARTING_AUDIO"><code class="docutils literal notranslate"><span class="pre">CallRecordingStatus.STARTING_AUDIO</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.CallRecordingStatus.RECORDING_FAILED"><code class="docutils literal notranslate"><span class="pre">CallRecordingStatus.RECORDING_FAILED</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#nc_py_api.talk.BreakoutRoomMode"><code class="docutils literal notranslate"><span class="pre">BreakoutRoomMode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.BreakoutRoomMode.NOT_CONFIGURED"><code class="docutils literal notranslate"><span class="pre">BreakoutRoomMode.NOT_CONFIGURED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.BreakoutRoomMode.AUTOMATIC"><code class="docutils literal notranslate"><span class="pre">BreakoutRoomMode.AUTOMATIC</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.BreakoutRoomMode.MANUAL"><code class="docutils literal notranslate"><span class="pre">BreakoutRoomMode.MANUAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.BreakoutRoomMode.FREE"><code class="docutils literal notranslate"><span class="pre">BreakoutRoomMode.FREE</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#nc_py_api.talk.BreakoutRoomStatus"><code class="docutils literal notranslate"><span class="pre">BreakoutRoomStatus</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.BreakoutRoomStatus.STOPPED"><code class="docutils literal notranslate"><span class="pre">BreakoutRoomStatus.STOPPED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nc_py_api.talk.BreakoutRoomStatus.STARTED"><code class="docutils literal notranslate"><span class="pre">BreakoutRoomStatus.STARTED</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Session.html">Session Structures</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../DevSetup.html">Setting up dev environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks/AppEcosystem.html">AppEcosystem Benchmarks</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NcPyApi</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Reference</a></li>
+      <li class="breadcrumb-item active">Talk API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/reference/Talk.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="talk-api">
+<h1>Talk API<a class="headerlink" href="#talk-api" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nc_py_api.talk.</span></span><span class="sig-name descname"><span class="pre">Conversation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nc_py_api/talk.html#Conversation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nc_py_api.talk.Conversation" title="Link to this definition"></a></dt>
+<dd><p>Talk conversation.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.conversation_id">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">conversation_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.conversation_id" title="Link to this definition"></a></dt>
+<dd><p>Numeric identifier of the conversation. Most methods that require this should accept this class itself.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.token">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">token</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.token" title="Link to this definition"></a></dt>
+<dd><p>Token identifier of the conversation which is used for further interaction.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.conversation_type">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">conversation_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#nc_py_api.talk.ConversationType" title="nc_py_api.talk.ConversationType"><span class="pre">ConversationType</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.conversation_type" title="Link to this definition"></a></dt>
+<dd><p>Type of the conversation, see: <a class="reference internal" href="#nc_py_api.talk.ConversationType" title="nc_py_api.talk.ConversationType"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConversationType</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.name" title="Link to this definition"></a></dt>
+<dd><p>Name of the conversation (can also be empty).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.display_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">display_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.display_name" title="Link to this definition"></a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">name</span></code> if non-empty, otherwise it falls back to a list of participants.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.description">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.description" title="Link to this definition"></a></dt>
+<dd><p>Description of the conversation (can also be empty) (only available with <code class="docutils literal notranslate"><span class="pre">room-description</span></code> capability).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.participant_type">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">participant_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#nc_py_api.talk.ParticipantType" title="nc_py_api.talk.ParticipantType"><span class="pre">ParticipantType</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.participant_type" title="Link to this definition"></a></dt>
+<dd><p>Permissions level of the current user, see: <a class="reference internal" href="#nc_py_api.talk.ParticipantType" title="nc_py_api.talk.ParticipantType"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParticipantType</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.attendee_id">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">attendee_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.attendee_id" title="Link to this definition"></a></dt>
+<dd><p>Unique attendee id.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.attendee_pin">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">attendee_pin</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.attendee_pin" title="Link to this definition"></a></dt>
+<dd><p>Unique dial-in authentication code for this user when the conversation has SIP enabled.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.actor_type">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">actor_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.actor_type" title="Link to this definition"></a></dt>
+<dd><p>Actor types of chat messages: <strong>users</strong>, <strong>guests</strong>, <strong>bots</strong>, <strong>bridged</strong>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.actor_id">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">actor_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.actor_id" title="Link to this definition"></a></dt>
+<dd><p>The unique identifier for the given actor type.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.permissions">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">permissions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#nc_py_api.talk.AttendeePermissions" title="nc_py_api.talk.AttendeePermissions"><span class="pre">AttendeePermissions</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.permissions" title="Link to this definition"></a></dt>
+<dd><p>Final permissions, combined <a class="reference internal" href="#nc_py_api.talk.AttendeePermissions" title="nc_py_api.talk.AttendeePermissions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AttendeePermissions</span></code></a> values.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.attendee_permissions">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">attendee_permissions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#nc_py_api.talk.AttendeePermissions" title="nc_py_api.talk.AttendeePermissions"><span class="pre">AttendeePermissions</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.attendee_permissions" title="Link to this definition"></a></dt>
+<dd><p>Dedicated permissions for the current participant, if not <code class="docutils literal notranslate"><span class="pre">Custom</span></code>, they are not the resulting ones.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.call_permissions">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">call_permissions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#nc_py_api.talk.AttendeePermissions" title="nc_py_api.talk.AttendeePermissions"><span class="pre">AttendeePermissions</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.call_permissions" title="Link to this definition"></a></dt>
+<dd><p>Call permissions, if not <code class="docutils literal notranslate"><span class="pre">Custom</span></code>, these are not the resulting permissions.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If set, they will reset after the end of the call.</p>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.default_permissions">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">default_permissions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#nc_py_api.talk.AttendeePermissions" title="nc_py_api.talk.AttendeePermissions"><span class="pre">AttendeePermissions</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.default_permissions" title="Link to this definition"></a></dt>
+<dd><p>Default permissions for new participants.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.participant_flags">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">participant_flags</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#nc_py_api.talk.InCallFlags" title="nc_py_api.talk.InCallFlags"><span class="pre">InCallFlags</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.participant_flags" title="Link to this definition"></a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">In</span> <span class="pre">call</span></code> flags of the user’s session making the request.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Available with <code class="docutils literal notranslate"><span class="pre">in-call-flags</span></code> capability.</p>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.read_only">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read_only</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.read_only" title="Link to this definition"></a></dt>
+<dd><p>Read-only state for the current user (only available with <code class="docutils literal notranslate"><span class="pre">read-only-rooms</span></code> capability).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.listable">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">listable</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#nc_py_api.talk.ListableScope" title="nc_py_api.talk.ListableScope"><span class="pre">ListableScope</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.listable" title="Link to this definition"></a></dt>
+<dd><p>Listable scope for the room (only available with <code class="docutils literal notranslate"><span class="pre">listable-rooms</span></code> capability).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.message_expiration">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">message_expiration</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.message_expiration" title="Link to this definition"></a></dt>
+<dd><p>The message expiration time in seconds in this chat. Zero if disabled.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only available with <code class="docutils literal notranslate"><span class="pre">message-expiration</span></code> capability.</p>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.has_password">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">has_password</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.has_password" title="Link to this definition"></a></dt>
+<dd><p>Flag if the conversation has a password.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.has_call">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">has_call</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.has_call" title="Link to this definition"></a></dt>
+<dd><p>Flag if the conversation has call.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.call_flag">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">call_flag</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#nc_py_api.talk.InCallFlags" title="nc_py_api.talk.InCallFlags"><span class="pre">InCallFlags</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.call_flag" title="Link to this definition"></a></dt>
+<dd><p>Combined flag of all participants in the current call.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only available with <code class="docutils literal notranslate"><span class="pre">conversation-call-flags</span></code> capability.</p>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.can_start_call">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">can_start_call</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.can_start_call" title="Link to this definition"></a></dt>
+<dd><p>Flag if the user can start a new call in this conversation (joining is always possible).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only available with start-call-flag capability.</p>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.can_delete_conversation">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">can_delete_conversation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.can_delete_conversation" title="Link to this definition"></a></dt>
+<dd><p>Flag if the user can delete the conversation for everyone.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.can_leave_conversation">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">can_leave_conversation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.can_leave_conversation" title="Link to this definition"></a></dt>
+<dd><p>Flag if the user can leave the conversation (not possible for the last user with moderator permissions).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.last_activity">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">last_activity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.last_activity" title="Link to this definition"></a></dt>
+<dd><p>Timestamp of the last activity in the conversation, in seconds and UTC time zone.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.is_favorite">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_favorite</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.is_favorite" title="Link to this definition"></a></dt>
+<dd><p>Flag if the conversation is favorite for the user.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.status_clear_at">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">status_clear_at</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.status_clear_at" title="Link to this definition"></a></dt>
+<dd><p>Unix Timestamp representing the time to clear the status.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.status_icon">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">status_icon</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.status_icon" title="Link to this definition"></a></dt>
+<dd><p>The icon picked by the user (must be one emoji).</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.status_message">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">status_message</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.status_message" title="Link to this definition"></a></dt>
+<dd><p>Message of the status.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.status_type">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">status_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.status_type" title="Link to this definition"></a></dt>
+<dd><p>Status type, on of the: online, away, dnd, invisible, offline.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.notification_level">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">notification_level</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#nc_py_api.talk.NotificationLevel" title="nc_py_api.talk.NotificationLevel"><span class="pre">NotificationLevel</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.notification_level" title="Link to this definition"></a></dt>
+<dd><p>The notification level for the user.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.lobby_state">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lobby_state</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#nc_py_api.talk.WebinarLobbyStates" title="nc_py_api.talk.WebinarLobbyStates"><span class="pre">WebinarLobbyStates</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.lobby_state" title="Link to this definition"></a></dt>
+<dd><p>Webinar lobby restriction (0-1).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only available with <code class="docutils literal notranslate"><span class="pre">webinary-lobby</span></code> capability.</p>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.lobby_timer">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lobby_timer</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.lobby_timer" title="Link to this definition"></a></dt>
+<dd><p>Timestamp when the lobby will be automatically disabled.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only available with <code class="docutils literal notranslate"><span class="pre">webinary-lobby</span></code> capability.</p>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.sip_enabled">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sip_enabled</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#nc_py_api.talk.SipEnabledStatus" title="nc_py_api.talk.SipEnabledStatus"><span class="pre">SipEnabledStatus</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.sip_enabled" title="Link to this definition"></a></dt>
+<dd><p>Status of the SIP for the conversation.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.can_enable_sip">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">can_enable_sip</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.can_enable_sip" title="Link to this definition"></a></dt>
+<dd><p>Whether the given user can enable SIP for this conversation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When the token is not-numeric only, SIP can not be enabled even
+if the user is permitted and a moderator of the conversation.</p>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.unread_messages_count">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unread_messages_count</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.unread_messages_count" title="Link to this definition"></a></dt>
+<dd><p>Number of unread chat messages in the conversation.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.unread_mention">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unread_mention</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.unread_mention" title="Link to this definition"></a></dt>
+<dd><p>Flag if the user was mentioned since their last visit.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.unread_mention_direct">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unread_mention_direct</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.unread_mention_direct" title="Link to this definition"></a></dt>
+<dd><p>Flag if the user was mentioned directly (ignoring <strong>&#64;all</strong> mentions) since their last visit.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only available with <code class="docutils literal notranslate"><span class="pre">direct-mention-flag</span></code> capability.</p>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.last_read_message">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">last_read_message</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.last_read_message" title="Link to this definition"></a></dt>
+<dd><p>ID of the last read message in a room.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>only available with <code class="docutils literal notranslate"><span class="pre">chat-read-marker</span></code> capability.</p>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.breakout_room_mode">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">breakout_room_mode</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#nc_py_api.talk.BreakoutRoomMode" title="nc_py_api.talk.BreakoutRoomMode"><span class="pre">BreakoutRoomMode</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.breakout_room_mode" title="Link to this definition"></a></dt>
+<dd><p>Breakout room configuration mode.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only available with <code class="docutils literal notranslate"><span class="pre">breakout-rooms-v1</span></code> capability.</p>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.breakout_room_status">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">breakout_room_status</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#nc_py_api.talk.BreakoutRoomStatus" title="nc_py_api.talk.BreakoutRoomStatus"><span class="pre">BreakoutRoomStatus</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.breakout_room_status" title="Link to this definition"></a></dt>
+<dd><p>Breakout room status.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only available with <code class="docutils literal notranslate"><span class="pre">breakout-rooms-v1</span></code> capability.</p>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.avatar_version">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">avatar_version</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.avatar_version" title="Link to this definition"></a></dt>
+<dd><p>Version of conversation avatar used to easier expiration of the avatar in case a moderator updates it.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only available with <code class="docutils literal notranslate"><span class="pre">avatar</span></code> capability.</p>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.is_custom_avatar">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_custom_avatar</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.is_custom_avatar" title="Link to this definition"></a></dt>
+<dd><p>Flag if the conversation has a custom avatar.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only available with <code class="docutils literal notranslate"><span class="pre">avatar</span></code> capability.</p>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.call_start_time">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">call_start_time</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.call_start_time" title="Link to this definition"></a></dt>
+<dd><p>Timestamp when the call was started.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only available with <code class="docutils literal notranslate"><span class="pre">recording-v1</span></code> capability.</p>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk.Conversation.recording_status">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">recording_status</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#nc_py_api.talk.CallRecordingStatus" title="nc_py_api.talk.CallRecordingStatus"><span class="pre">CallRecordingStatus</span></a></em><a class="headerlink" href="#nc_py_api.talk.Conversation.recording_status" title="Link to this definition"></a></dt>
+<dd><p>Call recording status..</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only available with <code class="docutils literal notranslate"><span class="pre">recording-v1</span></code> capability.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nc_py_api.talk._TalkAPI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nc_py_api.talk.</span></span><span class="sig-name descname"><span class="pre">_TalkAPI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="Session.html#nc_py_api._session.NcSessionBasic" title="nc_py_api._session.NcSessionBasic"><span class="pre">NcSessionBasic</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nc_py_api/talk.html#_TalkAPI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nc_py_api.talk._TalkAPI" title="Link to this definition"></a></dt>
+<dd><p>Class that implements work with Nextcloud Talk.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk._TalkAPI.config_sha">
+<span class="sig-name descname"><span class="pre">config_sha</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></em><a class="headerlink" href="#nc_py_api.talk._TalkAPI.config_sha" title="Link to this definition"></a></dt>
+<dd><p>Sha1 value over Talk config. After receiving a different value on subsequent requests, settings got refreshed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk._TalkAPI.modified_since">
+<span class="sig-name descname"><span class="pre">modified_since</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></em><a class="headerlink" href="#nc_py_api.talk._TalkAPI.modified_since" title="Link to this definition"></a></dt>
+<dd><p>Used by <code class="docutils literal notranslate"><span class="pre">get_user_conversations</span></code>, when <strong>modified_since</strong> param is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="nc_py_api.talk._TalkAPI.available">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">available</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></em><a class="headerlink" href="#nc_py_api.talk._TalkAPI.available" title="Link to this definition"></a></dt>
+<dd><p>Returns True if the Nextcloud instance supports this feature, False otherwise.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nc_py_api.talk._TalkAPI.get_user_conversations">
+<span class="sig-name descname"><span class="pre">get_user_conversations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">no_status_update</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_status</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modified_since</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#nc_py_api.talk.Conversation" title="nc_py_api.talk.Conversation"><span class="pre">Conversation</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/nc_py_api/talk.html#_TalkAPI.get_user_conversations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nc_py_api.talk._TalkAPI.get_user_conversations" title="Link to this definition"></a></dt>
+<dd><p>Returns the list of the user’s conversations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>no_status_update</strong> – When the user status should not be automatically set to the online. Default = <strong>True</strong></p></li>
+<li><p><strong>include_status</strong> – Whether the user status information of all one-to-one conversations should be loaded.</p></li>
+<li><p><strong>modified_since</strong> – <p>When provided only conversations with a newer <strong>lastActivity</strong>
+(and one-to-one conversations when includeStatus is provided) are returned.
+Can be set to <code class="docutils literal notranslate"><span class="pre">True</span></code> to automatically use last <code class="docutils literal notranslate"><span class="pre">modified_since</span></code> from previous calls. Default = <strong>0</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In rare cases, when a request arrives between seconds, it is possible that return data
+will contain part of the conversations from the last call that was not modified(
+their <cite>last_activity</cite> will be the same as <code class="docutils literal notranslate"><span class="pre">talk.modified_since</span></code>).</p>
+</div>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nc_py_api.talk._TalkAPI.create_conversation">
+<span class="sig-name descname"><span class="pre">create_conversation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conversation_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#nc_py_api.talk.ConversationType" title="nc_py_api.talk.ConversationType"><span class="pre">ConversationType</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">invite</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">room_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">object_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">object_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#nc_py_api.talk.Conversation" title="nc_py_api.talk.Conversation"><span class="pre">Conversation</span></a></span></span><a class="reference internal" href="../_modules/nc_py_api/talk.html#_TalkAPI.create_conversation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nc_py_api.talk._TalkAPI.create_conversation" title="Link to this definition"></a></dt>
+<dd><p>Creates a new conversation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Creating a conversation as a child breakout room will automatically set the lobby when breakout
+rooms are not started and will always overwrite the room type with the parent room type.
+Also, moderators of the parent conversation will be automatically added as moderators.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>conversation_type</strong> – type of the conversation to create.</p></li>
+<li><p><strong>invite</strong> – User ID(roomType=ONE_TO_ONE), Group ID(roomType=GROUP - optional),
+Circle ID(roomType=GROUP, source=’circles’, only available with the <code class="docutils literal notranslate"><span class="pre">circles-support</span></code> capability).</p></li>
+<li><p><strong>source</strong> – The source for the invite, only supported on roomType = GROUP for groups and circles.</p></li>
+<li><p><strong>room_name</strong> – Conversation name up to 255 characters(<code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">available</span> <span class="pre">for</span> <span class="pre">roomType=ONE_TO_ONE</span></code>).</p></li>
+<li><p><strong>object_type</strong> – Type of object this room references, currently only allowed
+value is <strong>“room”</strong> to indicate the parent of a breakout room.</p></li>
+<li><p><strong>object_id</strong> – ID of an object this room references, room token is used for the parent of a breakout room.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nc_py_api.talk._TalkAPI.delete_conversation">
+<span class="sig-name descname"><span class="pre">delete_conversation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conversation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#nc_py_api.talk.Conversation" title="nc_py_api.talk.Conversation"><span class="pre">Conversation</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/nc_py_api/talk.html#_TalkAPI.delete_conversation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nc_py_api.talk._TalkAPI.delete_conversation" title="Link to this definition"></a></dt>
+<dd><p>Deletes a conversation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Deleting a conversation that is the parent of breakout rooms, will also delete them.
+<code class="docutils literal notranslate"><span class="pre">ONE_TO_ONE</span></code> conversations can not be deleted for them
+<a class="reference internal" href="#nc_py_api.talk._TalkAPI.leave_conversation" title="nc_py_api.talk._TalkAPI.leave_conversation"><code class="xref py py-class docutils literal notranslate"><span class="pre">leave_conversation</span></code></a> should be used.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>conversation</strong> – conversation token or <a class="reference internal" href="#nc_py_api.talk.Conversation" title="nc_py_api.talk.Conversation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Conversation</span></code></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nc_py_api.talk._TalkAPI.leave_conversation">
+<span class="sig-name descname"><span class="pre">leave_conversation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conversation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#nc_py_api.talk.Conversation" title="nc_py_api.talk.Conversation"><span class="pre">Conversation</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../_modules/nc_py_api/talk.html#_TalkAPI.leave_conversation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nc_py_api.talk._TalkAPI.leave_conversation" title="Link to this definition"></a></dt>
+<dd><p>Removes yourself from the conversation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When the participant is a moderator or owner and there are no other moderators or owners left,
+participant can not leave conversation.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>conversation</strong> – conversation token or <a class="reference internal" href="#nc_py_api.talk.Conversation" title="nc_py_api.talk.Conversation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Conversation</span></code></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nc_py_api.talk.ConversationType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nc_py_api.talk.</span></span><span class="sig-name descname"><span class="pre">ConversationType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nc_py_api/talk.html#ConversationType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nc_py_api.talk.ConversationType" title="Link to this definition"></a></dt>
+<dd><p>Talk conversation types.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.ConversationType.ONE_TO_ONE">
+<span class="sig-name descname"><span class="pre">ONE_TO_ONE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#nc_py_api.talk.ConversationType.ONE_TO_ONE" title="Link to this definition"></a></dt>
+<dd><p>Direct One to One</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.ConversationType.GROUP">
+<span class="sig-name descname"><span class="pre">GROUP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#nc_py_api.talk.ConversationType.GROUP" title="Link to this definition"></a></dt>
+<dd><p>Group conversation(group chat)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.ConversationType.PUBLIC">
+<span class="sig-name descname"><span class="pre">PUBLIC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#nc_py_api.talk.ConversationType.PUBLIC" title="Link to this definition"></a></dt>
+<dd><p>Group conversation opened to all</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.ConversationType.CHANGELOG">
+<span class="sig-name descname"><span class="pre">CHANGELOG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#nc_py_api.talk.ConversationType.CHANGELOG" title="Link to this definition"></a></dt>
+<dd><p>Conversation that some App start to inform about new features, changes, e.g. changelog.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.ConversationType.FORMER">
+<span class="sig-name descname"><span class="pre">FORMER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#nc_py_api.talk.ConversationType.FORMER" title="Link to this definition"></a></dt>
+<dd><p>Former “One to one”
+(When a user is deleted from the server or removed from all their conversations,
+“One to one” rooms are converted to this type)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nc_py_api.talk.ParticipantType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nc_py_api.talk.</span></span><span class="sig-name descname"><span class="pre">ParticipantType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nc_py_api/talk.html#ParticipantType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nc_py_api.talk.ParticipantType" title="Link to this definition"></a></dt>
+<dd><p>Permissions level of the current user.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.ParticipantType.OWNER">
+<span class="sig-name descname"><span class="pre">OWNER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#nc_py_api.talk.ParticipantType.OWNER" title="Link to this definition"></a></dt>
+<dd><p>Creator of the conversation</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.ParticipantType.MODERATOR">
+<span class="sig-name descname"><span class="pre">MODERATOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#nc_py_api.talk.ParticipantType.MODERATOR" title="Link to this definition"></a></dt>
+<dd><p>Moderator of the conversation</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.ParticipantType.USER">
+<span class="sig-name descname"><span class="pre">USER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#nc_py_api.talk.ParticipantType.USER" title="Link to this definition"></a></dt>
+<dd><p>Conversation participant</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.ParticipantType.GUEST">
+<span class="sig-name descname"><span class="pre">GUEST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#nc_py_api.talk.ParticipantType.GUEST" title="Link to this definition"></a></dt>
+<dd><p>Conversation participant, with no account on NC instance</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.ParticipantType.USER_SELF_JOINED">
+<span class="sig-name descname"><span class="pre">USER_SELF_JOINED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#nc_py_api.talk.ParticipantType.USER_SELF_JOINED" title="Link to this definition"></a></dt>
+<dd><p>User following a public link</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.ParticipantType.GUEST_MODERATOR">
+<span class="sig-name descname"><span class="pre">GUEST_MODERATOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#nc_py_api.talk.ParticipantType.GUEST_MODERATOR" title="Link to this definition"></a></dt>
+<dd><p>Conversation moderator, with no account on NC instance</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nc_py_api.talk.AttendeePermissions">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nc_py_api.talk.</span></span><span class="sig-name descname"><span class="pre">AttendeePermissions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nc_py_api/talk.html#AttendeePermissions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nc_py_api.talk.AttendeePermissions" title="Link to this definition"></a></dt>
+<dd><p>Final permissions for the current participant.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Permissions are picked in order of attendee then call, then default,
+and the first which is <code class="docutils literal notranslate"><span class="pre">Custom</span></code> will apply.</p>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.AttendeePermissions.DEFAULT">
+<span class="sig-name descname"><span class="pre">DEFAULT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#nc_py_api.talk.AttendeePermissions.DEFAULT" title="Link to this definition"></a></dt>
+<dd><p>Default permissions (will pick the one from the next level of: <code class="docutils literal notranslate"><span class="pre">user</span></code>, <code class="docutils literal notranslate"><span class="pre">call</span></code>, <code class="docutils literal notranslate"><span class="pre">conversation</span></code>)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.AttendeePermissions.CUSTOM">
+<span class="sig-name descname"><span class="pre">CUSTOM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#nc_py_api.talk.AttendeePermissions.CUSTOM" title="Link to this definition"></a></dt>
+<dd><p>Custom permissions (this is required to be able to remove all other permissions)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.AttendeePermissions.START_CALL">
+<span class="sig-name descname"><span class="pre">START_CALL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#nc_py_api.talk.AttendeePermissions.START_CALL" title="Link to this definition"></a></dt>
+<dd><p>Start call</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.AttendeePermissions.JOIN_CALL">
+<span class="sig-name descname"><span class="pre">JOIN_CALL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#nc_py_api.talk.AttendeePermissions.JOIN_CALL" title="Link to this definition"></a></dt>
+<dd><p>Join call</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.AttendeePermissions.IGNORE">
+<span class="sig-name descname"><span class="pre">IGNORE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#nc_py_api.talk.AttendeePermissions.IGNORE" title="Link to this definition"></a></dt>
+<dd><p>Can ignore lobby</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.AttendeePermissions.AUDIO">
+<span class="sig-name descname"><span class="pre">AUDIO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">16</span></em><a class="headerlink" href="#nc_py_api.talk.AttendeePermissions.AUDIO" title="Link to this definition"></a></dt>
+<dd><p>Can publish audio stream</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.AttendeePermissions.VIDEO">
+<span class="sig-name descname"><span class="pre">VIDEO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">32</span></em><a class="headerlink" href="#nc_py_api.talk.AttendeePermissions.VIDEO" title="Link to this definition"></a></dt>
+<dd><p>Can publish video stream</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.AttendeePermissions.SHARE_SCREEN">
+<span class="sig-name descname"><span class="pre">SHARE_SCREEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">64</span></em><a class="headerlink" href="#nc_py_api.talk.AttendeePermissions.SHARE_SCREEN" title="Link to this definition"></a></dt>
+<dd><p>Can publish screen sharing stream</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.AttendeePermissions.OTHER">
+<span class="sig-name descname"><span class="pre">OTHER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">128</span></em><a class="headerlink" href="#nc_py_api.talk.AttendeePermissions.OTHER" title="Link to this definition"></a></dt>
+<dd><p>Can post chat message, share items and do reactions</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nc_py_api.talk.InCallFlags">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nc_py_api.talk.</span></span><span class="sig-name descname"><span class="pre">InCallFlags</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nc_py_api/talk.html#InCallFlags"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nc_py_api.talk.InCallFlags" title="Link to this definition"></a></dt>
+<dd><p>Participant in-call flags.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.InCallFlags.DISCONNECTED">
+<span class="sig-name descname"><span class="pre">DISCONNECTED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#nc_py_api.talk.InCallFlags.DISCONNECTED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.InCallFlags.IN_CALL">
+<span class="sig-name descname"><span class="pre">IN_CALL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#nc_py_api.talk.InCallFlags.IN_CALL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.InCallFlags.PROVIDES_AUDIO">
+<span class="sig-name descname"><span class="pre">PROVIDES_AUDIO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#nc_py_api.talk.InCallFlags.PROVIDES_AUDIO" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.InCallFlags.PROVIDES_VIDEO">
+<span class="sig-name descname"><span class="pre">PROVIDES_VIDEO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#nc_py_api.talk.InCallFlags.PROVIDES_VIDEO" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.InCallFlags.USES_SIP_DIAL_IN">
+<span class="sig-name descname"><span class="pre">USES_SIP_DIAL_IN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#nc_py_api.talk.InCallFlags.USES_SIP_DIAL_IN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nc_py_api.talk.ListableScope">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nc_py_api.talk.</span></span><span class="sig-name descname"><span class="pre">ListableScope</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nc_py_api/talk.html#ListableScope"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nc_py_api.talk.ListableScope" title="Link to this definition"></a></dt>
+<dd><p>Listable scope for the room.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.ListableScope.PARTICIPANTS_ONLY">
+<span class="sig-name descname"><span class="pre">PARTICIPANTS_ONLY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#nc_py_api.talk.ListableScope.PARTICIPANTS_ONLY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.ListableScope.ONLY_REGULAR_USERS">
+<span class="sig-name descname"><span class="pre">ONLY_REGULAR_USERS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#nc_py_api.talk.ListableScope.ONLY_REGULAR_USERS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.ListableScope.EVERYONE">
+<span class="sig-name descname"><span class="pre">EVERYONE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#nc_py_api.talk.ListableScope.EVERYONE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nc_py_api.talk.NotificationLevel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nc_py_api.talk.</span></span><span class="sig-name descname"><span class="pre">NotificationLevel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nc_py_api/talk.html#NotificationLevel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nc_py_api.talk.NotificationLevel" title="Link to this definition"></a></dt>
+<dd><p>The notification level for the user.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code> for one-to-one conversations, <code class="docutils literal notranslate"><span class="pre">2</span></code> for other conversations.</p>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.NotificationLevel.DEFAULT">
+<span class="sig-name descname"><span class="pre">DEFAULT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#nc_py_api.talk.NotificationLevel.DEFAULT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.NotificationLevel.ALWAYS_NOTIFY">
+<span class="sig-name descname"><span class="pre">ALWAYS_NOTIFY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#nc_py_api.talk.NotificationLevel.ALWAYS_NOTIFY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.NotificationLevel.NOTIFY_ON_MENTION">
+<span class="sig-name descname"><span class="pre">NOTIFY_ON_MENTION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#nc_py_api.talk.NotificationLevel.NOTIFY_ON_MENTION" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.NotificationLevel.NEVER_NOTIFY">
+<span class="sig-name descname"><span class="pre">NEVER_NOTIFY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#nc_py_api.talk.NotificationLevel.NEVER_NOTIFY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nc_py_api.talk.WebinarLobbyStates">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nc_py_api.talk.</span></span><span class="sig-name descname"><span class="pre">WebinarLobbyStates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nc_py_api/talk.html#WebinarLobbyStates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nc_py_api.talk.WebinarLobbyStates" title="Link to this definition"></a></dt>
+<dd><p>Webinar lobby restriction (0-1), if the participant is a moderator, they can always join the conversation.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.WebinarLobbyStates.NO_LOBBY">
+<span class="sig-name descname"><span class="pre">NO_LOBBY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#nc_py_api.talk.WebinarLobbyStates.NO_LOBBY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.WebinarLobbyStates.NON_MODERATORS">
+<span class="sig-name descname"><span class="pre">NON_MODERATORS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#nc_py_api.talk.WebinarLobbyStates.NON_MODERATORS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nc_py_api.talk.SipEnabledStatus">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nc_py_api.talk.</span></span><span class="sig-name descname"><span class="pre">SipEnabledStatus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nc_py_api/talk.html#SipEnabledStatus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nc_py_api.talk.SipEnabledStatus" title="Link to this definition"></a></dt>
+<dd><p>SIP enable status.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.SipEnabledStatus.DISABLED">
+<span class="sig-name descname"><span class="pre">DISABLED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#nc_py_api.talk.SipEnabledStatus.DISABLED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.SipEnabledStatus.ENABLED">
+<span class="sig-name descname"><span class="pre">ENABLED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#nc_py_api.talk.SipEnabledStatus.ENABLED" title="Link to this definition"></a></dt>
+<dd><p>Each participant needs a unique PIN.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.SipEnabledStatus.ENABLED_NO_PIN">
+<span class="sig-name descname"><span class="pre">ENABLED_NO_PIN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#nc_py_api.talk.SipEnabledStatus.ENABLED_NO_PIN" title="Link to this definition"></a></dt>
+<dd><p>Only the conversation token is required.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nc_py_api.talk.CallRecordingStatus">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nc_py_api.talk.</span></span><span class="sig-name descname"><span class="pre">CallRecordingStatus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nc_py_api/talk.html#CallRecordingStatus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nc_py_api.talk.CallRecordingStatus" title="Link to this definition"></a></dt>
+<dd><p>Type of call recording.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.CallRecordingStatus.NO_RECORDING">
+<span class="sig-name descname"><span class="pre">NO_RECORDING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#nc_py_api.talk.CallRecordingStatus.NO_RECORDING" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.CallRecordingStatus.VIDEO">
+<span class="sig-name descname"><span class="pre">VIDEO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#nc_py_api.talk.CallRecordingStatus.VIDEO" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.CallRecordingStatus.AUDIO">
+<span class="sig-name descname"><span class="pre">AUDIO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#nc_py_api.talk.CallRecordingStatus.AUDIO" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.CallRecordingStatus.STARTING_VIDEO">
+<span class="sig-name descname"><span class="pre">STARTING_VIDEO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#nc_py_api.talk.CallRecordingStatus.STARTING_VIDEO" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.CallRecordingStatus.STARTING_AUDIO">
+<span class="sig-name descname"><span class="pre">STARTING_AUDIO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#nc_py_api.talk.CallRecordingStatus.STARTING_AUDIO" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.CallRecordingStatus.RECORDING_FAILED">
+<span class="sig-name descname"><span class="pre">RECORDING_FAILED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#nc_py_api.talk.CallRecordingStatus.RECORDING_FAILED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nc_py_api.talk.BreakoutRoomMode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nc_py_api.talk.</span></span><span class="sig-name descname"><span class="pre">BreakoutRoomMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nc_py_api/talk.html#BreakoutRoomMode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nc_py_api.talk.BreakoutRoomMode" title="Link to this definition"></a></dt>
+<dd><p>Breakout room modes.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.BreakoutRoomMode.NOT_CONFIGURED">
+<span class="sig-name descname"><span class="pre">NOT_CONFIGURED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#nc_py_api.talk.BreakoutRoomMode.NOT_CONFIGURED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.BreakoutRoomMode.AUTOMATIC">
+<span class="sig-name descname"><span class="pre">AUTOMATIC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#nc_py_api.talk.BreakoutRoomMode.AUTOMATIC" title="Link to this definition"></a></dt>
+<dd><p>Attendees are unsorted and then distributed over the rooms, so they all have the same participant count.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.BreakoutRoomMode.MANUAL">
+<span class="sig-name descname"><span class="pre">MANUAL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#nc_py_api.talk.BreakoutRoomMode.MANUAL" title="Link to this definition"></a></dt>
+<dd><p>A map with attendee to room number specifies the participants.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.BreakoutRoomMode.FREE">
+<span class="sig-name descname"><span class="pre">FREE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#nc_py_api.talk.BreakoutRoomMode.FREE" title="Link to this definition"></a></dt>
+<dd><p>Each attendee picks their own breakout room.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nc_py_api.talk.BreakoutRoomStatus">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nc_py_api.talk.</span></span><span class="sig-name descname"><span class="pre">BreakoutRoomStatus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nc_py_api/talk.html#BreakoutRoomStatus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nc_py_api.talk.BreakoutRoomStatus" title="Link to this definition"></a></dt>
+<dd><p>Breakout room status.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.BreakoutRoomStatus.STOPPED">
+<span class="sig-name descname"><span class="pre">STOPPED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#nc_py_api.talk.BreakoutRoomStatus.STOPPED" title="Link to this definition"></a></dt>
+<dd><p>Breakout rooms lobbies are disabled.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nc_py_api.talk.BreakoutRoomStatus.STARTED">
+<span class="sig-name descname"><span class="pre">STARTED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#nc_py_api.talk.BreakoutRoomStatus.STARTED" title="Link to this definition"></a></dt>
+<dd><p>Breakout rooms lobbies are enabled.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Exceptions.html" class="btn btn-neutral float-left" title="Exceptions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Session.html" class="btn btn-neutral float-right" title="Session Structures" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 Nextcloud GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
